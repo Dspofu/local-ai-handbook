@@ -12,7 +12,7 @@ Parameters are the internal variables that the model "learned" during training.
 ### 2. Quantization ("Compression")
 Quantization is the process of reducing the precision of these parameters to save memory (VRAM/RAM) and increase speed.
 
-- **Good point:** **4-bit quantization (Q4_K_M)** is the gold standard. It reduces the model size by about 70% with minimal impact on intelligence.
+- **Good point:** Using **4-bit quantization (Q4_K_M)** is an excellent standard for use in both testing and production. It reduces model size by approximately 70%, with minimal impact on intelligence.
 - **Logic rules:** A larger quantized model (e.g., **70B Q4**) will almost always perform better than a smaller model with full precision (e.g., **30B FP16**).
 
 ### 3. Context Window ("Short-term Memory")
@@ -100,6 +100,11 @@ If you want to teach an AI new tricks or adapt it to a specific dataset:
 | **Q2_K** | Emergency use | **Very Low** | Moderate | Significant |
 
 > **Note on Speed:** Spilling layers over to system RAM via GGUF offloading saves memory but heavily degrades generation speed (Tokens/Second). Try to fit the full quantization within your VRAM for peak performance.
+
+# 
+
+### Personal Recommendations
+Search for Q4K_M quantization models and try to find one that fits entirely within your GPU's VRAM.
 
 ---
 *Empowering everyone to run AI privately and locally.*
